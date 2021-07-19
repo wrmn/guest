@@ -1,4 +1,7 @@
-import {main,regis,book} from "../view/main.js";
+import { Loader } from "../../index.js";
+import { regis, book } from "../view/main.js";
+import { bookFunct } from "./book.js";
+import { regisFunct } from "./regis.js";
 
 const home = ` <div class="container">
 <h2 class="page-section-heading text-center text-uppercase text-white">Dinas Kearsipan dan Pembukuan Kota Padang
@@ -53,11 +56,12 @@ const home = ` <div class="container">
 </div>`;
 
 const homeFunct = () => {
-    document.getElementById("register2").onclick = (function(){
-    });
-    document.getElementById("book2").onclick = (function(){
-        book();
-    })
+  document.getElementById("register2").onclick = function () {
+    Loader(regisFunct, regis);
+  };
+  document.getElementById("book2").onclick = function () {
+    Loader(bookFunct, book);
+  };
 };
 
-export {home, homeFunct};
+export { home, homeFunct };
