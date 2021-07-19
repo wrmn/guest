@@ -1,3 +1,5 @@
+import { pageForm } from "../view/main";
+
 const regisPage = `
 <div class="container">
   <div class="row justify-content-center">
@@ -116,6 +118,7 @@ const regisFunct = () => {
     const response = await fetch(url, options);
     let result = await response.json();
     if (result.ok == "ok") {
+      pageForm(result.data);
     } else {
       alert(
         `data yang dimasukkan tidak benar, ${JSON.stringify(
