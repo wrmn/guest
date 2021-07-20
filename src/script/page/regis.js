@@ -59,12 +59,14 @@ const regisPage = `
               <label>Nomor Identitas</label>
               <input type="text" class="form-control" id="identitas_no" required oninvalid="this.setCustomValidity('Data dibutuhkan')"
               oninput="this.setCustomValidity('')"/>
+              Max. 2048kB
             </div>
           </div>
           <div class="col-md-6">
             <label>Pas Foto</label>
             <input type="file" id="foto_file" class="form-control" accept="image/*" required oninvalid="this.setCustomValidity('Data dibutuhkan')"
             oninput="this.setCustomValidity('')"/>
+            Max. 2048 kB
           </div>
           <div class="col-md-6">
             <label>Kartu Identitas</label>

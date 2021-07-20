@@ -1,7 +1,6 @@
 import { home } from "../page/home";
 import { bookPage } from "../page/book";
 import { regisPage } from "../page/regis";
-import { pagePrint } from "../page/formPrint";
 
 const main = () => {
   let page = document.getElementById("content");
@@ -17,6 +16,16 @@ const book = () => {
   let page = document.getElementById("content");
   page.innerHTML = bookPage;
 };
+
+function capital(str) {
+  return str
+    .toLowerCase()
+    .split(" ")
+    .map(function (word) {
+      return word[0].toUpperCase() + word.substr(1);
+    })
+    .join(" ");
+}
 
 const pageForm = async (data) => {
   let page = document.querySelector("html");
@@ -193,17 +202,19 @@ const pageForm = async (data) => {
       No. Anggota:.....................
       <div class="row py-3">
         <div class="col-md-3">Nama</div>
-        <div class="col-md-9">: ${data.nama}</div>
+        <div class="col-md-9">: ${capital(data.nama)}</div>
         <div class="col-md-3">Tempat / Tanggal Lahir</div>
-        <div class="col-md-9">: ${data.tempat_lahir} / ${data.tanggal_lahir}</div>
+        <div class="col-md-9">: ${capital(data.tempat_lahir)} / ${
+    data.tanggal_lahir
+  }</div>
         <div class="col-md-3">Alamat Tetap</div>
-        <div class="col-md-9">: ${data.alamat}</div>
+        <div class="col-md-9">: ${capital(data.alamat)}</div>
         <div class="col-md-3">No. Telp / Hp</div>
-        <div class="col-md-9">: ${data.telepon_no}</div>
+        <div class="col-md-9">: ${capital(data.telepon_no)}</div>
         <div class="col-md-3">Pendidikan / Pekerjaan</div>
         <div class="col-md-9">: ${data.pekerjaan}</div>
         <div class="col-md-3">Nama Instansi</div>
-        <div class="col-md-9">: ${data.nama_instansi}</div>
+        <div class="col-md-9">: ${capital(data.nama_instansi)}</div>
       </div>
 
       Mendaftar sebagai anggota dan menggunakan fasilitas perpustakaan dan saya
@@ -219,9 +230,9 @@ const pageForm = async (data) => {
         <div class="col-md-3">Yang Memohon</div>
       </div>
       <div class="row pt-5 text-center">
-        <div class="col-md-3">(${data.nama})</div>
-        <div class="col-md-6"></div>
         <div class="col-md-3">(......................................)</div>
+        <div class="col-md-6"></div>
+        <div class="col-md-3">(${capital(data.nama)})</div>
       </div>
 
       <hr
